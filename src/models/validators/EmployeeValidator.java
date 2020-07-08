@@ -15,14 +15,19 @@ public class EmployeeValidator {
     public static List<String> validate(Employee e, Boolean code_duplicate_check_flag, Boolean password_check_flag) {
         List<String> errors = new ArrayList<String>();
 
-        String employeeCode_error = _validateCode(e.getEmployeeCode(), code_duplicate_check_flag);
+        String employeeCode_error = _validateEmployeeCode(e.getEmployeeCode(), code_duplicate_check_flag);
         if(!employeeCode_error.equals("")) {
             errors.add(employeeCode_error);
         }
 
-        String employeeName_error = _validateName(e.getEmployeeName());
+        String employeeName_error = _validateEmployeeName(e.getEmployeeName());
         if(!employeeName_error.equals("")) {
             errors.add(employeeName_error);
+        }
+
+        String sectionCode_error = _validateSectionCode(e.getSectionCode());
+        if(!sectionCode_error.equals("")) {
+            errors.add(sectionCode_error);
         }
 
         String password_error = _validatePassword(e.getPassword(), password_check_flag);
@@ -35,7 +40,7 @@ public class EmployeeValidator {
 
 
     // 社員番号
-    private static String _validateCode(String employeeCode, Boolean code_duplicate_check_flag) {
+    private static String _validateEmployeeCode(String employeeCode, Boolean code_duplicate_check_flag) {
         // 必須入力チェック
         if(employeeCode == null || employeeCode.equals("")) {
             return "社員番号を入力してください。";
@@ -64,13 +69,23 @@ public class EmployeeValidator {
     }
 
     // 社員名の必須入力チェック
-    private static String _validateName(String employeeName) {
+    private static String _validateEmployeeName(String employeeName) {
         if(employeeName == null || employeeName.equals("")) {
             return "氏名を入力してください。";
         }
 
         return "";
     }
+
+    // 部署の必須入力チェック
+    private static String _validateSectionCode(String sectionCode) {
+        if(sectionCode == null || sectionCode.equals("")) {
+            return "部署を入力してください。";
+        }
+
+        return "";
+    }
+
 
     // パスワードの必須入力チェック
     private static String _validatePassword(String password, Boolean password_check_flag) {
