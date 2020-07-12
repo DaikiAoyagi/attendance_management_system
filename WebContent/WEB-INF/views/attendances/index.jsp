@@ -14,14 +14,14 @@
                 <tr>
                     <th class="attendance_name">氏名</th>
                     <th class="work_date">出勤日</th>
-                    <th class="attendance_content">備考</th>
-                    <th class="rattendance_action">操作</th>
+                    <th class="start_time">出勤時刻</th>
+                    <th class="attendance_action">操作</th>
                 </tr>
                 <c:forEach var="attendance" items="${attendances}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td class="attendance_name"><c:out value="${attendance.employee.name}" /></td>
                         <td class="work_date"><fmt:formatDate value='${attendance.work_date}' pattern='yyyy-MM-dd' /></td>
-                        <td class="attendance_content">${attendance.content}</td>
+                        <td class="start_time"><fmt:formatDate value='${attendance.start_time}' pattern='HH:mm' /></td>
                         <td class="attendance_action"><a href="<c:url value='/attendances/show?id=${attendance.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
