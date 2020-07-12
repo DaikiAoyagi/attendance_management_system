@@ -134,24 +134,24 @@ h1 a {
     color: #eeeeee;
 }
 
-table#report_list th {
+table#attendance_list th {
     font-weight: bold;
     padding: 10px 2%;
 }
 
-table#report_list .report_name {
+table#attendance_list .attendance_name {
     width: 20%;
     padding: 10px 2%;
 }
-table#report_list .report_date {
+table#attendance_list .attendance_date {
     width: 20%;
 }
 
-table#report_list .report_title {
+table#attendance_list .attendance_title {
     width: 37%;
 }
 
-table#report_list .report_action {
+table#attendance_list .attendance_action {
     width: 13%;
 }
 
