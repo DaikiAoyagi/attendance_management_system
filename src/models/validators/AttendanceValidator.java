@@ -21,9 +21,10 @@ public class AttendanceValidator {
 
     private static String _validateContent(String content) {
         if(content == null || content.equals("")) {
-            return "内容を入力してください。";
+            return "備考を入力してください。";
             }
 
         return "";
     }
+
 }

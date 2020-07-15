@@ -88,7 +88,7 @@ updated_at  更新日時    日時型
     private Time working_hours;
 
     @Lob
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = true)
     private String content;
 
     @Column(name = "created_at", nullable = false)

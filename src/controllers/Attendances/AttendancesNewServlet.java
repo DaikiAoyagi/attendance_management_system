@@ -37,6 +37,7 @@ public class AttendancesNewServlet extends HttpServlet {
         Attendance r = new Attendance();
         r.setWork_date(new Date(System.currentTimeMillis()));
         r.setStart_time(new Time(System.currentTimeMillis()));
+
         request.setAttribute("attendance", r);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/attendances/new.jsp");
