@@ -23,19 +23,19 @@
 <br /><br />
 
 <label for="break_start_time">休憩開始時刻</label><br />
-<input type="time" name="break_start_time" value='${attendance.break_start_time}'/>
+<input type="time" name="break_start_time" value='${attendance.break_start_time}' step="1"/>
 <br /><br />
 
 <label for="break_finish_time">休憩終了時刻</label><br />
-<input type="time" name="break_finish_time" value='${attendance.break_finish_time}'/>
+<input type="time" name="break_finish_time" value='${attendance.break_finish_time}' step="1"/>
 <br /><br />
 
 <label for="finish_time">退勤時刻</label><br />
-<input type="time" name="finish_time" value='${attendance.finish_time}'/>
+<input type="time" name="finish_time" value='${attendance.finish_time}' step="1"/>
 <br /><br />
 
 <label for="content">備考</label><br />
-<textarea name="content" rows="10" cols="50">${attendance.content}</textarea>
+<textarea name="content" rows="5" cols="50">${attendance.content}</textarea>
 <br /><br />
 
 <input type="hidden" name="_token" value="${_token}" />
