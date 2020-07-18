@@ -47,7 +47,7 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='/attendances/new' />">新規勤怠の登録</a></p>
+        <p><a href="<c:url value='/attendances/new' />">出勤登録</a></p>
 
     </c:param>
 </c:import>
