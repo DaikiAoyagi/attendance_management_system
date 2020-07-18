@@ -34,9 +34,17 @@
                             <th>退勤時刻</th>
                             <td><fmt:formatDate value="${attendance.finish_time}" pattern='HH:mm:ss' /></td>
                         </tr>
+                        <tr>
+                            <th>休憩時間</th>
+                            <td><fmt:formatDate value="${attendance.break_time}" pattern='HH:mm:ss' /></td>
+                        </tr>
+                        <tr>
+                            <th>勤務時間</th>
+                            <td><fmt:formatDate value="${attendance.working_hours}" pattern='HH:mm:ss' /></td>
+                        </tr>
 
                         <tr>
-                            <th>内容</th>
+                            <th>備考</th>
                             <td>
                                 <pre><c:out value="${attendance.content}" /></pre>
                             </td>

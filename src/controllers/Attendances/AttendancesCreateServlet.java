@@ -70,8 +70,8 @@ public class AttendancesCreateServlet extends HttpServlet {
             r.setFinish_time(d_times);
             r.setBreak_start_time(d_times);
             r.setBreak_finish_time(d_times);
-            r.setBreak_time(d_times);
-            r.setWorking_hours(d_times);
+            //r.setBreak_time(d_times);
+            //r.setWorking_hours(d_times);
 
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
