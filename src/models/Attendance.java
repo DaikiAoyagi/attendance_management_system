@@ -60,9 +60,6 @@ updated_at  更新日時    日時型
 仕様
 ・出勤日(YYYY/MM/DD)、出勤時刻(hh:mm)、退勤時刻(hh:mm)は社員が入力
 ・勤務時間は、出勤時刻と退勤時刻から自動計算し、休憩時間を引いて表示
-・登録日時、更新日時は以下のマネジメント目的で使う
-  ・登録日時=社員が発行した出勤日時と剥離していないか
-  ・更新日時=過去のタイムカードの勤怠情報を更新したか
  */
 
 
@@ -203,25 +200,4 @@ updated_at  更新日時    日時型
         this.updated_at = updated_at;
     }
 
-    /**
-     * 休憩開始時間と休憩終了時間から休憩時間を自動計算する。
-
-    public void calcBreakTime() {
-        Duration duration = Duration.between(break_start_time, break_finish_time);
-        setBreak_time(duration);
-    }
-*/
-    /**
-     * 出勤時間と退勤時間から勤務時間を自動計算する。<br>
-     * 休憩時間があるときは勤務時間から休憩時間を引く。
-
-    public void calcWorkingHours() {
-        Duration duration = Duration.between(start_time, finish_time);
-        setWorking_hours(duration);
-        if(break_time != null) {
-            duration = working_hours.minus(break_time);
-            setWorking_hours(duration);
-        }
-    }
-    */
 }

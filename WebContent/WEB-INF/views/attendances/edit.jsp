@@ -14,6 +14,6 @@
             </c:otherwise>
         </c:choose>
 
-        <p><a href="<c:url value='/attendances/index' />">一覧に戻る</a></p>
+        <p><a href="<c:url value='/' />">自分の勤怠一覧に戻る</a></p>
     </c:param>
 </c:import>

@@ -19,19 +19,19 @@
 <br /><br />
 
 <label for="start_time">出勤時刻</label><br />
-<input type="time" name="start_time" value='${attendance.start_time}' step="1"/>
+<input type="time" name="start_time" value="<fmt:formatDate value='${attendance.start_time}' pattern='HH:mm' />"/>
 <br /><br />
 
 <label for="break_start_time">休憩開始時刻</label><br />
-<input type="time" name="break_start_time" value='${attendance.break_start_time}' step="1"/>
+<input type="time" name="break_start_time" value="<fmt:formatDate value='${attendance.break_start_time}' pattern='HH:mm' />"/>
 <br /><br />
 
 <label for="break_finish_time">休憩終了時刻</label><br />
-<input type="time" name="break_finish_time" value='${attendance.break_finish_time}' step="1"/>
+<input type="time" name="break_finish_time" value="<fmt:formatDate value='${attendance.break_finish_time}' pattern='HH:mm' />"/>
 <br /><br />
 
 <label for="finish_time">退勤時刻</label><br />
-<input type="time" name="finish_time" value='${attendance.finish_time}' step="1"/>
+<input type="time" name="finish_time" value="<fmt:formatDate value='${attendance.finish_time}' pattern='HH:mm' />"/>
 <br /><br />
 
 <label for="content">備考</label><br />

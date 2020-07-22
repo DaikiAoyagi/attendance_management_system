@@ -46,6 +46,7 @@ public class AttendancesCreateServlet extends HttpServlet {
 
             r.setEmployee((Employee)request.getSession().getAttribute("login_employee"));
 
+            //出勤日
             Date work_date = new Date(System.currentTimeMillis());
             String rd_str = request.getParameter("work_date");
             if(rd_str != null && !rd_str.equals("")) {
@@ -54,24 +55,22 @@ public class AttendancesCreateServlet extends HttpServlet {
             }
             r.setWork_date(work_date);
 
-
-            //Time times = Time.valueOf(request.getParameter("start_time"));
-            //Time times = Time.valueOf("09:00:00");
-
+            //出勤時刻
             Time times = new Time(System.currentTimeMillis());
             String times_str = request.getParameter("start_time");
             if(times_str != null && !times_str.equals("")) {
-                //Stringで受け取った時間を Date 型へ変換
-                times = Time.valueOf(request.getParameter("start_time"));
+                //Stringで受け取った時間を Time 型へ変換
+                times = Time.valueOf(request.getParameter("start_time")+":00");
             }
             r.setStart_time(times);
 
+            //ダミー入力
             Time d_times = Time.valueOf("00:00:00");
             r.setFinish_time(d_times);
             r.setBreak_start_time(d_times);
             r.setBreak_finish_time(d_times);
-            //r.setBreak_time(d_times);
-            //r.setWorking_hours(d_times);
+            r.setBreak_time(d_times);
+            r.setWorking_hours(d_times);
 
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
