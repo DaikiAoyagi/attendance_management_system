@@ -126,6 +126,4 @@ edit＞勤怠管理側で休憩終了時間を打刻
         this.break_finish_time = break_finish_time;
     }
 
-
-
 }
