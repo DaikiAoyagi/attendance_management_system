@@ -6,6 +6,7 @@ import java.util.List;
 import models.Attendance;
 
 public class AttendanceValidator {
+
     public static List<String> validate(Attendance r) {
         List<String> errors = new ArrayList<String>();
 
@@ -25,6 +26,7 @@ public class AttendanceValidator {
             }
 
         return "";
+
     }
 
 }

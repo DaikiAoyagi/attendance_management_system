@@ -15,9 +15,9 @@
                     <th class="attendance_name">氏名</th>
                     <th class="work_date">出勤日</th>
                     <th class="start_time">出勤時刻</th>
-                    <th class="break_start_time">休憩開始時刻</th>
-                    <th class="break_finish_time">休憩終了時刻</th>
                     <th class="finish_time">退勤時刻</th>
+                    <th class="break_time">休憩時間</th>
+                    <th class="working_hours">勤務時間</th>
                     <th class="attendance_action">操作</th>
                 </tr>
                 <c:forEach var="attendance" items="${attendances}" varStatus="status">
@@ -25,10 +25,10 @@
                         <td class="attendance_name"><c:out value="${attendance.employee.employeeName}" /></td>
                         <td class="work_date"><fmt:formatDate value='${attendance.work_date}' pattern='yyyy-MM-dd(E)' /></td>
                         <td class="start_time"><fmt:formatDate value='${attendance.start_time}' pattern='HH:mm'/></td>
-                        <td class="break_start_time"><fmt:formatDate value='${attendance.break_start_time}' pattern='HH:mm' /></td>
-                        <td class="break_finish_time"><fmt:formatDate value='${attendance.break_finish_time}' pattern='HH:mm' /></td>
                         <td class="finish_time"><fmt:formatDate value='${attendance.finish_time}' pattern='HH:mm' /></td>
-                        <td class="attendance_action"><a href="<c:url value='/attendances/show?id=${attendance.id}' />">詳細</a></td>
+                        <td class="break_time"><fmt:formatDate value='${attendance.break_time}' pattern='HH:mm' /></td>
+                        <td class="working_hours"><fmt:formatDate value='${attendance.working_hours}' pattern='HH:mm' /></td>
+                        <td class="attendance_action"><a href="<c:url value='/attendances/show_break_index?id=${attendance.id}' />">詳細</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -5,7 +5,7 @@
         <h2>勤怠　出勤登録ページ</h2>
 
         <form method="POST" action="<c:url value='/attendances/create' />">
-            <c:import url="_form.jsp" />
+            <c:import url="_form_Wstart.jsp" />
         </form>
 
         <p><a href="<c:url value='/' />">自分の勤怠一覧に戻る</a></p>

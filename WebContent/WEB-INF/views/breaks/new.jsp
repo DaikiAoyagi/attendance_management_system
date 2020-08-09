@@ -5,7 +5,7 @@
         <h2>休憩時間　登録ページ</h2>
 
         <form method="POST" action="<c:url value='/breaks/create' />">
-            <c:import url="_form.jsp" />
+            <c:import url="_form_Bstart.jsp" />
         </form>
 
         <p><a href="<c:url value='/' />">自分の勤怠一覧に戻る</a></p>

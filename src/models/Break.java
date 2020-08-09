@@ -34,7 +34,7 @@ import javax.persistence.Table;
 
     @NamedQuery(
             name = "getMyAllBreaksPerDay",
-            query = "SELECT b FROM Break AS b WHERE b.employee = :employee AND b.work_date = :work_date ORDER BY b.break_start_time DESC"
+            query = "SELECT b FROM Break AS b WHERE b.employee = :employee AND b.work_date = :work_date ORDER BY b.break_start_time ASC"
             ),
     @NamedQuery(
             name = "getMyBreaksPerDayCount",
@@ -42,7 +42,7 @@ import javax.persistence.Table;
             ),
     @NamedQuery(
             name = "getMyNowBreaks",
-            query = "SELECT b FROM Break AS b WHERE b.employee = :employee AND b.work_date = :work_date AND b.break_start_time =:break_start_time"
+            query = "SELECT nb.id FROM Break AS nb WHERE nb.employee = :employee AND nb.work_date = :work_date AND nb.break_finish_time =:break_finish_time"
             )
 })
 

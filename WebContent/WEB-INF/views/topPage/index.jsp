@@ -29,7 +29,7 @@
                         <td class="finish_time"><fmt:formatDate value='${attendance.finish_time}' pattern='HH:mm' /></td>
                         <td class="break_time"><fmt:formatDate value='${attendance.break_time}' pattern='HH:mm' /></td>
                         <td class="working_hours"><fmt:formatDate value='${attendance.working_hours}' pattern='HH:mm' /></td>
-                        <td class="attendance_action"><a href="<c:url value='/attendances/show?id=${attendance.id}' />">詳細</a></td>
+                        <td class="attendance_action"><a href="<c:url value='/attendances/show_break_index?id=${attendance.id}' />">詳細</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

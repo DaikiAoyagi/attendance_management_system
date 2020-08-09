@@ -5,9 +5,18 @@
         <c:choose>
             <c:when test="${attendance != null}">
                 <h2>勤怠　編集ページ</h2>
-                <form method="POST" action="<c:url value='/attendances/update' />">
-                    <c:import url="_form.jsp" />
-                </form>
+                <c:choose>
+                    <c:when test="${sessionScope.break_id == 0}">
+                        <form method="POST" action="<c:url value='/attendances/update' />">
+                            <c:import url="_form_Bstart_Wfinish.jsp" />
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <form method="POST" action="<c:url value='/attendances/update' />">
+                            <c:import url="_form_Bfinish.jsp" />
+                        </form>
+                    </c:otherwise>
+                </c:choose>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>

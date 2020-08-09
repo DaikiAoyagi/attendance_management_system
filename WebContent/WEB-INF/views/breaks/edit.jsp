@@ -6,7 +6,7 @@
             <c:when test="${breaks != null}">
                 <h2>休憩時間　編集ページ</h2>
                 <form method="POST" action="<c:url value='/breaks/update' />">
-                    <c:import url="_form.jsp" />
+                    <c:import url="_form_Bfinish.jsp" />
                 </form>
 
                 <p><a href="#" onclick="confirmDestroy();">この休憩時間を削除する</a></p>

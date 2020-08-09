@@ -3,7 +3,6 @@ package models;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
-//import java.time.Duration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +26,10 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getAttendancesCount",
             query = "SELECT COUNT(r) FROM Attendance AS r"
+            ),
+    @NamedQuery(
+            name = "getMyWorkDayAttendances",
+            query = "SELECT wd.work_date FROM Attendance AS wd WHERE wd.employee = :employee AND wd.id= :id"
             ),
     @NamedQuery(
             name = "getMyAllAttendances",

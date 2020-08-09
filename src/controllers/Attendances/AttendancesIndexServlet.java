@@ -54,6 +54,9 @@ public class AttendancesIndexServlet extends HttpServlet {
         request.setAttribute("attendances", attendances);
         request.setAttribute("attendances_count", attendances_count);
         request.setAttribute("page", page);
+
+        //request.getSession().getAttribute("work_date", work_date);
+
         if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
             request.getSession().removeAttribute("flush");
