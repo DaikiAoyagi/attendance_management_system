@@ -97,7 +97,7 @@ public class AttendancesCreateServlet extends HttpServlet {
                 em.close();
                 request.getSession().setAttribute("flush", "登録が完了しました。");
 
-                response.sendRedirect(request.getContextPath() + "/attendances/index");
+                response.sendRedirect(request.getContextPath() + "/");
             }
         }
     }

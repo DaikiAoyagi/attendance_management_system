@@ -162,8 +162,9 @@ public class AttendancesUpdateServlet extends HttpServlet {
                 request.getSession().setAttribute("flush", "更新が完了しました。");
 
                 request.getSession().removeAttribute("attendance_id");
+                request.getSession().removeAttribute("break_id");
 
-                response.sendRedirect(request.getContextPath() + "/attendances/index");
+                response.sendRedirect(request.getContextPath() + "/");
             }
         }
     }

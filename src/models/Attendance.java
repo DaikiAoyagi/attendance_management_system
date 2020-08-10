@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllAttendances",
-            query = "SELECT r FROM Attendance AS r ORDER BY r.id DESC"
+            query = "SELECT r FROM Attendance AS r ORDER BY r.work_date DESC"
             ),
     @NamedQuery(
             name = "getAttendancesCount",
@@ -33,7 +33,7 @@ import javax.persistence.Table;
             ),
     @NamedQuery(
             name = "getMyAllAttendances",
-            query = "SELECT r FROM Attendance AS r WHERE r.employee = :employee ORDER BY r.id DESC"
+            query = "SELECT r FROM Attendance AS r WHERE r.employee = :employee ORDER BY r.work_date DESC"
             ),
     @NamedQuery(
             name = "getMyAttendancesCount",

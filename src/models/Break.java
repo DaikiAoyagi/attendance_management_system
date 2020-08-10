@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllBreaks",
-            query = "SELECT b FROM Break AS b ORDER BY b.id DESC"
+            query = "SELECT b FROM Break AS b ORDER BY b.work_date DESC, b.break_start_time DESC"
             ),
     @NamedQuery(
             name = "getBreaksCount",
@@ -29,7 +29,7 @@ import javax.persistence.Table;
 
     @NamedQuery(
             name = "getMyAllBreaks",
-            query = "SELECT b FROM Break AS b WHERE b.employee = :employee ORDER BY b.id DESC"
+            query = "SELECT b FROM Break AS b WHERE b.employee = :employee ORDER BY b.work_date DESC, b.break_start_time DESC"
             ),
 
     @NamedQuery(

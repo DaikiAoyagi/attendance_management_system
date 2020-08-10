@@ -66,11 +66,12 @@ public class BreaksUpdateServlet extends HttpServlet {
                 em.getTransaction().begin();
                 em.getTransaction().commit();
                 em.close();
-                request.getSession().setAttribute("flush", "更新が完了しました。");
+                request.getSession().setAttribute("flush", "休憩更新しました。");
 
                 request.getSession().removeAttribute("break_id");
 
-                response.sendRedirect(request.getContextPath() + "/breaks/index");
+                //response.sendRedirect(request.getContextPath() + "/attendances/edit?id=" + request.getSession().getAttribute("attendance_id"));
+                response.sendRedirect(request.getContextPath() + "/");
             }
         }
     }

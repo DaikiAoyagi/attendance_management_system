@@ -30,22 +30,41 @@
                             </tr>
                             <tr>
                                  <th>休憩終了_時刻</th>
-                                 <td><fmt:formatDate value="${breaks.break_finish_time}" pattern='HH:mm:ss' /></td>
+                                    <c:choose>
+                                        <c:when test="${breaks.break_finish_time == '00:00:00'}">
+                                            <td>&nbsp;</td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td><fmt:formatDate value="${breaks.break_finish_time}" pattern='HH:mm:ss' /></td>
+                                        </c:otherwise>
+                                    </c:choose>
                             </tr>
                         </c:forEach>
 
                         <tr>
-                            <c:forEach var="breaks" items="${breaks}" varStatus="status">
-                            </c:forEach>
-                        </tr>
-                        <tr>
                             <th>退勤時刻</th>
-                            <td><fmt:formatDate value="${attendance.finish_time}" pattern='HH:mm:ss' /></td>
+                            <c:choose>
+                                <c:when test="${attendance.finish_time == '00:00:00'}">
+                                    <td>&nbsp;</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><fmt:formatDate value="${attendance.finish_time}" pattern='HH:mm:ss' /></td>
+                                </c:otherwise>
+                            </c:choose>
                         </tr>
+
                         <tr>
                             <th>休憩時間</th>
-                            <td><fmt:formatDate value="${attendance.break_time}" pattern='HH:mm:ss' /></td>
+                            <c:choose>
+                                <c:when test="${attendance.break_time == '00:00:00'}">
+                                    <td>&nbsp;</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><fmt:formatDate value="${attendance.break_time}" pattern='HH:mm:ss' /></td>
+                                </c:otherwise>
+                            </c:choose>
                         </tr>
+
                         <tr>
                             <th>勤務時間</th>
                             <td><fmt:formatDate value="${attendance.working_hours}" pattern='HH:mm:ss' /></td>

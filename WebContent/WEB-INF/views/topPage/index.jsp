@@ -26,8 +26,25 @@
                         <td class="attendance_name"><c:out value="${attendance.employee.employeeName}" /></td>
                         <td class="work_date"><fmt:formatDate value='${attendance.work_date}' pattern='yyyy-MM-dd(E)' /></td>
                         <td class="start_time"><fmt:formatDate value='${attendance.start_time}' pattern='HH:mm'/></td>
+
+                <c:choose>
+                    <c:when test="${attendance.finish_time == '00:00:00'}">
+                        <td>&nbsp;</td>
+                    </c:when>
+                    <c:otherwise>
                         <td class="finish_time"><fmt:formatDate value='${attendance.finish_time}' pattern='HH:mm' /></td>
+                    </c:otherwise>
+                </c:choose>
+
+                <c:choose>
+                    <c:when test="${attendance.break_time == '00:00:00'}">
+                        <td>&nbsp;</td>
+                    </c:when>
+                    <c:otherwise>
                         <td class="break_time"><fmt:formatDate value='${attendance.break_time}' pattern='HH:mm' /></td>
+                    </c:otherwise>
+                </c:choose>
+
                         <td class="working_hours"><fmt:formatDate value='${attendance.working_hours}' pattern='HH:mm' /></td>
                         <td class="attendance_action"><a href="<c:url value='/attendances/show_break_index?id=${attendance.id}' />">詳細</a></td>
                     </tr>

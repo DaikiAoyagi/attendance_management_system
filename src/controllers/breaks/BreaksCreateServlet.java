@@ -85,9 +85,10 @@ public class BreaksCreateServlet extends HttpServlet {
                 em.persist(b);
                 em.getTransaction().commit();
                 em.close();
-                request.getSession().setAttribute("flush", "登録が完了しました。");
+                request.getSession().setAttribute("flush", "休憩開始しました。");
 
-                response.sendRedirect(request.getContextPath() + "/breaks/index");
+                //response.sendRedirect(request.getContextPath() + "/attendances/edit?id=" + request.getSession().getAttribute("attendance_id"));
+                response.sendRedirect(request.getContextPath() + "/");
             }
         }
     }
