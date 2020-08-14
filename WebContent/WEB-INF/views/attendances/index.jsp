@@ -19,6 +19,10 @@
                     <th class="break_time">休憩時間</th>
                     <th class="working_hours">勤務時間</th>
                     <th class="attendance_action">操作</th>
+                    <c:if test="${sessionScope.login_employee.admin_flag == 1}">
+                        <th class="approver">承認</th>
+                    </c:if>
+
                 </tr>
                 <c:forEach var="attendance" items="${attendances}" varStatus="status">
                     <tr class="row${status.count % 2}">
@@ -29,6 +33,9 @@
                         <td class="break_time"><fmt:formatDate value='${attendance.break_time}' pattern='HH:mm' /></td>
                         <td class="working_hours"><fmt:formatDate value='${attendance.working_hours}' pattern='HH:mm' /></td>
                         <td class="attendance_action"><a href="<c:url value='/attendances/show_break_index?id=${attendance.id}' />">詳細</a></td>
+                        <c:if test="${sessionScope.login_employee.admin_flag == 1}">
+                            <td class="approval_action"><a href="<c:url value='/attendances/update_approval?id=${attendance.id}' />">${attendance.approver}</a></td>
+                        </c:if>
                     </tr>
                 </c:forEach>
             </tbody>

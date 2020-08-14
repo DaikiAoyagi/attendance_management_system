@@ -23,14 +23,7 @@
                             <td><fmt:formatDate value="${attendance.start_time}" pattern='HH:mm:ss' /></td>
                         </tr>
                         <tr>
-                            <th>休憩開始時刻</th>
-                            <td><fmt:formatDate value="${attendance.break_start_time}" pattern='HH:mm:ss' /></td>
-                        </tr>
-                        <tr>
-                            <th>休憩終了時刻</th>
-                            <td><fmt:formatDate value="${attendance.break_finish_time}" pattern='HH:mm:ss' /></td>
-                        </tr>
-                        <tr>
+
                             <th>退勤時刻</th>
                             <td><fmt:formatDate value="${attendance.finish_time}" pattern='HH:mm:ss' /></td>
                         </tr>
@@ -60,6 +53,23 @@
                             <td>
                                 <fmt:formatDate value="${attendance.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" />
                             </td>
+                        </tr>
+                        <tr>
+                            <th>承認者</th>
+                            <td>
+                                <c:out value="${attendance.approver}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>承認日</th>
+                            <c:choose>
+                                <c:when test="${attendance.approval_date == '1000-00-00'}">
+                                    <td>&nbsp;</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><fmt:formatDate value="${attendance.approval_date}" pattern="yyyy-MM-dd(E)" /></td>
+                                </c:otherwise>
+                            </c:choose>
                         </tr>
                     </tbody>
                 </table>

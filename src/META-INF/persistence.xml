@@ -7,10 +7,9 @@
 		<class>models.Break</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/attendance_management_system?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
-			<property name="javax.persistence.jdbc.user" value="attenduser"/>
-			<property name="javax.persistence.jdbc.password" value="attendpass"/>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-02.cleardb.com/heroku_785f3b40d10cab0?reconnect=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8"/>
+			<property name="javax.persistence.jdbc.user" value="ba418c0f88b3e8"/>
+			<property name="javax.persistence.jdbc.password" value="d44c1494"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql	" value="true"/>

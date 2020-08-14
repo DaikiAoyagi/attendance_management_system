@@ -88,6 +88,24 @@
                                 <fmt:formatDate value="${attendance.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" />
                             </td>
                         </tr>
+                        <tr>
+                            <th>承認者</th>
+                            <td>
+                                <c:out value="${attendance.approver}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>承認日</th>
+                            <c:choose>
+                                <c:when test="${attendance.approval_date == '1000-00-00'}">
+                                    <td>&nbsp;</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><fmt:formatDate value="${attendance.approval_date}" pattern="yyyy-MM-dd(E)" /></td>
+                                </c:otherwise>
+                            </c:choose>
+                        </tr>
+
                     </tbody>
                 </table>
 

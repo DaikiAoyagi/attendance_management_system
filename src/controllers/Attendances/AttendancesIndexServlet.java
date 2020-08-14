@@ -54,6 +54,7 @@ public class AttendancesIndexServlet extends HttpServlet {
         request.setAttribute("attendances", attendances);
         request.setAttribute("attendances_count", attendances_count);
         request.setAttribute("page", page);
+        request.setAttribute("login_name", request.getSession().getId()); //ログイン者
 
         //request.getSession().getAttribute("work_date", work_date);
 

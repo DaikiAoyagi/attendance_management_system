@@ -48,12 +48,13 @@ public class Attendance {
 /*
 カラム名    用途  データ型
 id      リソース内での連番   数値型
-employee_id 打刻社員の社員番号   文字列型
+employee_id 打刻社員の社員番号
 work_date   出勤日     日付型
 start_time  出勤時刻    時間型
 finish_time 退勤時刻    時間型
-break_start_time    休憩開始時刻  時間型
-break_finish_time   休憩終了時刻  時間型
+approval_date  承認日付     日付型
+approver  承認者情報   文字列型
+,break_finish_time   休憩終了時刻  時間型
 break_time  休憩時間    時間型
 working_hours   勤務時間    時間型
 content     備考      テキスト型
@@ -84,8 +85,11 @@ updated_at  更新日時    日時型
     @Column(name = "finish_time", nullable = false)
     private Time finish_time;
 
-    @Column(name = "break_start_time", nullable = false)
-    private Time break_start_time;
+    @Column(name = "approval_date", nullable = false)
+    private Date approval_date;
+
+    @Column(name = "approver ", nullable = false)
+    private String approver ;
 
     @Column(name = "break_finish_time", nullable = false)
     private Time break_finish_time;
@@ -146,13 +150,22 @@ updated_at  更新日時    日時型
         this.finish_time = finish_time;
     }
 
-    public Time getBreak_start_time() {
-        return break_start_time;
+    public Date getApproval_date() {
+        return approval_date;
     }
 
-    public void setBreak_start_time(Time break_start_time) {
-        this.break_start_time = break_start_time;
+    public void setApproval_date(Date approval_date) {
+        this.approval_date = approval_date;
     }
+
+    public String getApprover() {
+        return approver;
+    }
+
+    public void setApprover(String approver) {
+        this.approver = approver;
+    }
+
 
     public Time getBreak_finish_time() {
         return break_finish_time;

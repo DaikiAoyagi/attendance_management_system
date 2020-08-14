@@ -44,6 +44,7 @@ public class AttendancesCreateServlet extends HttpServlet {
 
             Attendance r = new Attendance();
 
+            //ログインユーザー（出勤者）
             r.setEmployee((Employee)request.getSession().getAttribute("login_employee"));
 
             //出勤日
@@ -67,7 +68,6 @@ public class AttendancesCreateServlet extends HttpServlet {
             //ダミー入力
             Time d_times = Time.valueOf("00:00:00");
             r.setFinish_time(d_times);
-            r.setBreak_start_time(d_times);
             r.setBreak_finish_time(d_times);
             r.setBreak_time(d_times);
             r.setWorking_hours(d_times);
@@ -78,6 +78,10 @@ public class AttendancesCreateServlet extends HttpServlet {
             r.setUpdated_at(currentTime);
 
             r.setContent(request.getParameter("content"));
+
+            //承認項目ダミー
+            r.setApproval_date(Date.valueOf("1000-01-01"));
+            r.setApprover("未承認");
 
 
             List<String> errors = AttendanceValidator.validate(r);

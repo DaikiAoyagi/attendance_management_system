@@ -46,20 +46,24 @@ public class AttendancesShowBreakIndexServlet extends HttpServlet {
 
 
         //休憩情報indexのDB呼び出し
-        Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+        //Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+        Employee a_employee = r.getEmployee();
+        System.out.println("出勤者"+a_employee);
 
         //出勤情報から出勤日を取得
         //Date wd = Date.valueOf("2020-07-01");
 
         Date wd = em.createNamedQuery("getMyWorkDayAttendances", Date.class)
-                        .setParameter("employee", login_employee)
+                        //.setParameter("employee", login_employee)
+                        .setParameter("employee", a_employee)
                         .setParameter("id", Integer.parseInt(request.getParameter("id")))
                         .getSingleResult();
 
 
         //出勤日をパラメータにセットして休憩時間リストを抽出
         List<Break> breaks = em.createNamedQuery("getMyAllBreaksPerDay", Break.class)
-                                .setParameter("employee", login_employee)
+                                //.setParameter("employee", login_employee)
+                                .setParameter("employee", a_employee)
                                 .setParameter("work_date", wd)
                                 .getResultList();
 
@@ -77,7 +81,8 @@ public class AttendancesShowBreakIndexServlet extends HttpServlet {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
                 Date ft = dateFormat.parse(strDate);
                 int nb = em.createNamedQuery("getMyNowBreaks", Integer.class)
-                    .setParameter("employee", login_employee)
+                    //.setParameter("employee", login_employee)
+                    .setParameter("employee", a_employee)
                     .setParameter("work_date", wd)
                     .setParameter("break_finish_time",ft )
                     .getSingleResult();
