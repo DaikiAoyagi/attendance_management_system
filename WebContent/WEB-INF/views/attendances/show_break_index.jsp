@@ -97,7 +97,7 @@
                         <tr>
                             <th>承認日</th>
                             <c:choose>
-                                <c:when test="${attendance.approval_date == '1000-00-00'}">
+                                <c:when test="${attendance.approval_date == '1000-01-01'}">
                                     <td>&nbsp;</td>
                                 </c:when>
                                 <c:otherwise>
@@ -109,7 +109,7 @@
                     </tbody>
                 </table>
 
-                <c:if test="${sessionScope.login_employee.id == attendance.employee.id}">
+                <c:if test="${sessionScope.login_employee.id == attendance.employee.id && attendance.approver == '未承認'}">
                     <p><a href="<c:url value="/attendances/edit?id=${attendance.id}" />">この勤怠を編集する</a></p>
                 </c:if>
             </c:when>

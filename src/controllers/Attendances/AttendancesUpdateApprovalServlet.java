@@ -65,7 +65,6 @@ public class AttendancesUpdateApprovalServlet extends HttpServlet {
                 em.getTransaction().commit();
                 em.close();
 
-
                 request.getSession().removeAttribute("attendance_id");
                 request.getSession().removeAttribute("break_id");
 
