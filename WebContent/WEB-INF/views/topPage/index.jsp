@@ -10,6 +10,11 @@
         </c:if>
         <h2>勤怠管理システムへようこそ</h2>
         <h3>【自分の勤怠　一覧】</h3>
+            <form method="POST" action="<c:url value='/attendances/index_monthly' />">
+                <label for="yyyymm">年月</label><br />
+                <input type="month" name="yyyymm" />
+                <button type="submit">更新</button>
+            </form>
         <table id="attendance_list">
             <tbody>
                 <tr>

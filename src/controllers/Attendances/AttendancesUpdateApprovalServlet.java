@@ -46,18 +46,21 @@ public class AttendancesUpdateApprovalServlet extends HttpServlet {
 
                 //ステイタスが未承認の場合は承認登録。すでに承認済みの場合は承認解除として未承認に戻す
                 String Approver = r.getApprover();
-                System.out.println(Approver);
+                    System.out.println("登録内容" + Approver);
 
                 if(Approver.equals("未承認")){
                     //承認者（ログインユーザーから氏名を取得）
                     r.setApprover(login_employee.getEmployeeName());
+                        System.out.println(login_employee.getEmployeeName());
                     //承認時間を現在の時刻で渡す
                     r.setApproval_date(new Date(System.currentTimeMillis()));
                     request.getSession().setAttribute("flush", "承認しました。");
 
                 }else{
                     r.setApprover("未承認");
+                        System.out.println(login_employee.getEmployeeName() + "未承認");
                     r.setApproval_date(Date.valueOf("1000-01-01"));
+                        System.out.println(Date.valueOf("1000-01-01"));
                     request.getSession().setAttribute("flush", "承認を解除しました。");
                 }
 

@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllAttendances",
-            query = "SELECT r FROM Attendance AS r ORDER BY r.work_date DESC"
+            query = "SELECT r FROM Attendance AS r ORDER BY r.work_date ASC"
             ),
     @NamedQuery(
             name = "getAttendancesCount",
@@ -33,11 +33,21 @@ import javax.persistence.Table;
             ),
     @NamedQuery(
             name = "getMyAllAttendances",
-            query = "SELECT r FROM Attendance AS r WHERE r.employee = :employee ORDER BY r.work_date DESC"
+            query = "SELECT r FROM Attendance AS r WHERE r.employee = :employee ORDER BY r.work_date ASC"
             ),
     @NamedQuery(
             name = "getMyAttendancesCount",
             query = "SELECT COUNT(r) FROM Attendance AS r WHERE r.employee = :employee"
+            ),
+    @NamedQuery(
+            name = "getMyYYYYMMAttendances",
+            query = "SELECT r FROM Attendance AS r WHERE r.work_date BETWEEN :start_work_date AND :last_work_date"
+                    +" AND r.employee = :employee ORDER BY r.work_date ASC"
+            ),
+    @NamedQuery(
+            name = "getMyYYYYMMAttendancesCount",
+            query = "SELECT COUNT(r) FROM Attendance AS r WHERE r.work_date BETWEEN :start_work_date AND :last_work_date"
+                    +" AND r.employee = :employee"
             )
 
 })
@@ -88,8 +98,8 @@ updated_at  更新日時    日時型
     @Column(name = "approval_date", nullable = false)
     private Date approval_date;
 
-    @Column(name = "approver ", nullable = false)
-    private String approver ;
+    @Column(name = "approver", nullable = false)
+    private String approver;
 
     @Column(name = "break_finish_time", nullable = false)
     private Time break_finish_time;

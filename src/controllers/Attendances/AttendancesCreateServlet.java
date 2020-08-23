@@ -81,7 +81,7 @@ public class AttendancesCreateServlet extends HttpServlet {
 
             //承認項目ダミー
             r.setApproval_date(Date.valueOf("1000-01-01"));
-            r.setApprover("未承認");
+            r.setApprover("1");
 
 
             List<String> errors = AttendanceValidator.validate(r);
