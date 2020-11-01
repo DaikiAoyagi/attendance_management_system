@@ -27,6 +27,10 @@ import javax.persistence.Table;
             name = "getAttendancesCount",
             query = "SELECT COUNT(r) FROM Attendance AS r"
             ),
+    /*@NamedQuery(
+            name = "getMysectionCodeAttendances",
+            query = "SELECT r FROM Attendance AS r INNER JOIN employees ON r.employee_id = employees.id WHERE employees.sectionCode = :employees.sectionCode ORDER BY r.work_date ASC"
+            ),*/
     @NamedQuery(
             name = "getMyWorkDayAttendances",
             query = "SELECT wd.work_date FROM Attendance AS wd WHERE wd.employee = :employee AND wd.id= :id"
@@ -59,6 +63,7 @@ public class Attendance {
 カラム名    用途  データ型
 id      リソース内での連番   数値型
 employee_id 打刻社員の社員番号
+employee_sectionCode 打刻社員の部署コード
 work_date   出勤日     日付型
 start_time  出勤時刻    時間型
 finish_time 退勤時刻    時間型
@@ -85,6 +90,9 @@ updated_at  更新日時    日時型
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
+
+    @Column(name = "employee_section", nullable = false)
+    private String employee_section;
 
     @Column(name = "work_date", nullable = false)
     private Date work_date;
@@ -134,6 +142,14 @@ updated_at  更新日時    日時型
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public String getEmployee_section() {
+        return employee_section;
+    }
+
+    public void setEmployee_section(String employee_section) {
+        this.employee_section = employee_section;
     }
 
     public Date getWork_date() {

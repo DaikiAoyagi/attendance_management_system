@@ -35,17 +35,28 @@ public class AttendancesIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+        //ログインユーザーのクラスを取得し、部署コードを取得
+        //Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+        //String sectionCode = login_employee.getSectionCode();
+
         int page;
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(Exception e) {
             page = 1;
         }
+
         List<Attendance> attendances = em.createNamedQuery("getAllAttendances", Attendance.class)
                                   .setFirstResult(15 * (page - 1))
                                   .setMaxResults(15)
                                   .getResultList();
-
+        /*
+        List<Attendance> attendances = em.createNamedQuery("getMysectionCodeAttendances", Attendance.class)
+                .setParameter("employee", sectionCode)
+                .setFirstResult(15 * (page - 1))
+                .setMaxResults(15)
+                .getResultList();
+        */
         long attendances_count = (long)em.createNamedQuery("getAttendancesCount", Long.class)
                                      .getSingleResult();
 

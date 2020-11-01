@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllEmployees",
-            query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
+            query = "SELECT e FROM Employee AS e ORDER BY e.sectionCode ASC ,e.admin_flag DESC"
             ),
     @NamedQuery(
             name = "getEmployeesCount",
@@ -40,7 +40,7 @@ employeeCode:社員番号_文字列型
 employeeName:社員名_文字列型
 sectionCode:部署コード_文字列型
 password:システムへのログインパスワード_文字列型
-admin_flag:管理者権限があるかどうか_数値型（一般：0、管理者：1）
+admin_flag:管理者権限があるかどうか_数値型（スタッフ：０、リーダー：１、マネージャー：２、システム管理者：９）
 created_at:登録日時_日時型
 updated_at:更新日時_日時型
 delete_flag:削除された従業員かどうか_数値型（現役：0、削除済み：1）

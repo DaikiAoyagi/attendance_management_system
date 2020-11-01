@@ -14,6 +14,7 @@
                     <th>社員番号</th>
                     <th>氏名</th>
                     <th>部署</th>
+                    <th>権限</th>
                     <th>操作</th>
                 </tr>
                 <c:forEach var="employee" items="${employees}" varStatus="status">
@@ -21,6 +22,14 @@
                         <td><c:out value="${employee.employeeCode}" /></td>
                         <td><c:out value="${employee.employeeName}" /></td>
                         <td><c:out value="${employee.sectionCode}" /></td>
+                        <td>
+                            <c:choose>
+                                    <c:when test="${employee.admin_flag == 9}">システム管理者</c:when>
+                                    <c:when test="${employee.admin_flag == 2}">マネージャー</c:when>
+                                    <c:when test="${employee.admin_flag == 1}">リーダー</c:when>
+                                    <c:otherwise>スタッフ</c:otherwise>
+                            </c:choose>
+                        </td>
                         <td>
                             <c:choose>
                                 <c:when test="${employee.delete_flag == 1}">

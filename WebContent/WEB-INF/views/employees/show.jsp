@@ -25,7 +25,9 @@
                             <th>権限</th>
                             <td>
                                 <c:choose>
-                                    <c:when test="${employee.admin_flag == 1}">管理者</c:when>
+                                    <c:when test="${employee.admin_flag == 9}">システム管理者</c:when>
+                                    <c:when test="${employee.admin_flag == 2}">マネージャー</c:when>
+                                    <c:when test="${employee.admin_flag == 1}">リーダー</c:when>
                                     <c:otherwise>一般</c:otherwise>
                                 </c:choose>
                             </td>
